@@ -1,12 +1,13 @@
-async function getQuote() {
-  const quoteElement = document.getElementById('quote');
-  quoteElement.textContent = 'Loading...';
-  try {
-    const response = await fetch('https://api.quotable.io/random');
-    const data = await response.json();
-    quoteElement.textContent = `"${data.content}" — ${data.author}`;
-  } catch (error) {
-    quoteElement.textContent = 'Failed to fetch quote. Please try again.';
-  }
+﻿const quotes = [
+ "Believe in yourself.",
+ "You are stronger than you think.",
+ "Stay positive, work hard, make it happen.",
+ "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+ "Every day is a second chance."
+];
+function generateQuote() {
+ const randomIndex = Math.floor(Math.random() * quotes.length);
+ document.getElementById('quote').textContent = quotes[randomIndex];
 }
-window.onload = getQuote;
+// Show a quote when the page loads
+generateQuote();
